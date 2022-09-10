@@ -8,7 +8,9 @@
  */
 int main(void)
 {
-	char x = 'a';
+	char x;
+
+	x = 'A';
 
 	while (x <= 'z')
 	{
@@ -16,6 +18,8 @@ int main(void)
 	putchar(x);
 	x++;
 	}
+	x = 'A';
+
 	while (x <= 'Z')
 	{
 	x = toupper(x);
