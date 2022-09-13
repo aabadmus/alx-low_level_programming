@@ -1,10 +1,10 @@
 #include "main.h"
 
 /**
- * print_sign - check alphabetic
+ * print_sign - check the code.
  * @n: is the letter being tested
  *
- * Return: Always 0 (Success)
+ * Return: Always 0
  */
 
 int print_sign(int n)
@@ -22,7 +22,7 @@ int print_sign(int n)
 	}
 	else
 	{
-		_putchar('+');
+		_putchar('-');
 		return (-1);
 	}
 }
