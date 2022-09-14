@@ -4,22 +4,22 @@
  * print_last_digit - last digit
  * @n: is the letter being tested
  *
- * Return: Always 4`
+ * Return: Always 4
  */
 
 int print_last_digit(int n)
 {
-	int r;
+	int l;
 
-	if (n >= 0)
+	l = n % 10;
+	if (l < 0)
 	{
-		r = ((n % 10) + 48);
-		_putchar (r);
+		_putchar(-l + 48);
+		return (-l);
 	}
 	else
+	{
+		_putchar(l + 48);
+		return (l);
 	}
-		r = (-(n % 10) + 48);
-		_putchar (0 + r);
-	}
-	return (4);
 }
