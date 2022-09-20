@@ -17,7 +17,7 @@ void puts_half(char *str)
 		length = length;
 	}
 	n = length / 2;
-	r = length - ((length - 1) / 2);
+	r = (length - 1) / 2;
 
 	for (length = n; str[length] != '\0'; length++)
 	{
