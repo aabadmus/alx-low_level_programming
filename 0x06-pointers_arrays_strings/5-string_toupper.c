@@ -2,22 +2,22 @@
 
 /**
  * *string_toupper - entry
- * @s: given character
+ * @str: given character
  * Return: *
  */
-char *string_toupper(char *s)
+char *string_toupper(char *str)
 {
 	int n, i;
 
-	for (i = 0; s[i] != '\n'; i++)
+	for (i = 0; str[i] != '\0'; i++)
 	{
-		n = s[i];
+		n = str[i];
 
 		if (n >= 97 && n <= 122)
 		{
-			s[i] = (n - 32);
+			str[i] = (n - 32);
 		}
 	}
 
-	return (s);
+	return (str);
 }
