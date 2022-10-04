@@ -3,40 +3,66 @@
 #include <stdio.h>
 
 /**
-* _strlen - returns the lenght of a string
-*@s: poiter of character
-*Return: the length of a string
-*/
+ * _strlen - returns the lenght of a string
+ *@s: poiter of character
+ *Return: the length of a string
+ */
 int _strlen(char *s)
-{	
-	char *strout;
-	unsigned int i, j, k, limit;
+{
+	int len;
 
+	len = 0;
+	while (*(s + len) != '\0')
+		len++;
+	return (len);
+}
+
+/**
+ * *str_concat - concatenates two strings
+ *@s1: first string to concatenate
+ *@s2: second string to concatenate
+ *Return: the ponter to string concatenate or NULL
+ */
+char *str_concat(char *s1, char *s2)
+{
+	int l1, l2;
+	int i, j;
+	char *empty, *concat;
+
+	/**lets make empty strings*/
+	empty = "";
+
+	/**comparing the enter strings*/
 	if (s1 == NULL)
-		s1 = "";
+		s1 = empty;
 	if (s2 == NULL)
-		s2 = "";
+		s2 = empty;
 
-	for (i = 0; s1[i] != '\0'; i++)
-		;
+	/**Calculating the length of the strings*/
+	l1 = _strlen(s1);
+	l2 = _strlen(s2);
 
-	for (j = 0; s2[j] != '\0'; j++)
-		;
+	/**assign memory*/
+	/**increments l2 for the null character*/
+	l2++;
+	concat = malloc((l1 + l2) * sizeof(*concat));
 
-	strout = malloc(sizeof(char) * (i + j + 1));
-
-	if (strout == NULL)
-	{
-		free(strout);
+	/**verify if memory fails*/
+	if (concat == NULL)
 		return (NULL);
+
+	/**concatenate the strings*/
+	for (i = 0; i < l1; i++)
+	{
+		concat[i] = s1[i];
 	}
 
-	for (k = 0; k < i; k++)
-		strout[k] = s1[k];
-
-	limit = j;
-	for (j = 0; j <= limit; k++, j++)
-		strout[k] = s2[j];
-
-	return (strout);
+	for (j = 0; j < l2; j++)
+	{
+		concat[i] = s2[j];
+		i++;
+	}
+	i++;
+	concat[i] = '\0';
+	return (concat);
 }
